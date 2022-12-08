@@ -7,7 +7,7 @@ $title = $post->post_title;
 $posts_counter = 0;
 ?>
 
-<div class="relative bg-cover min-h-screen bg-center flex items-center justify-center" style="
+<div class="relative bg-cover min-h-72 sm:min-h-screen bg-center flex items-center justify-center" style="
     background-image:url('<?php echo $banner ?>')">
     <div class="container mx-auto pt-48 pb-32">
         <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
@@ -17,7 +17,7 @@ $posts_counter = 0;
     <img src="<?php echo THEME_IMG . 'biege-wave-up.svg' ?>" alt="" class="w-full absolute -bottom-1 right-0">
 </div>
 <section class="bg-biege-dark pt-5 <?php if (empty(get_field('team'))) echo 'pb-10'; ?>">
-    <div class="container mx-auto grid sm:grid-cols-2 gap-10 sm:gap-20">
+    <div class="container mx-auto grid gap-4">
         <div>
             <?php echo get_field('about_text_1') ?>
         </div>

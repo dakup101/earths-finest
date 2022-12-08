@@ -14,7 +14,6 @@ add_theme_support('post-thumbnails');
 add_theme_support( 'woocommerce' );
 add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-slider' );
-add_theme_support( 'wc-product-gallery-zoom' );
 
 add_filter('use_block_editor_for_post', '__return_false');
 add_filter( 'wpcf7_autop_or_not', '__return_false' );

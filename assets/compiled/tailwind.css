@@ -1124,6 +1124,14 @@ ul, ol {
   height: 0px;
 }
 
+.h-80 {
+  height: 20rem;
+}
+
+.h-72 {
+  height: 18rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1336,6 +1344,10 @@ ul, ol {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .justify-self-center {
@@ -1984,6 +1996,10 @@ ul, ol {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .xs\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
   .xs\:justify-self-end {
     justify-self: end;
   }
@@ -2053,6 +2069,14 @@ ul, ol {
 
   .sm\:h-64 {
     height: 16rem;
+  }
+
+  .sm\:h-screen {
+    height: 100vh;
+  }
+
+  .sm\:min-h-screen {
+    min-height: 100vh;
   }
 
   .sm\:w-2\/3 {

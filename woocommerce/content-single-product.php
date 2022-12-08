@@ -18,11 +18,7 @@ global $product;
     </div>
 </div>
 
-<div class="container mx-auto py-10 border-t border-b border-brown/20 mt-10">
-    <?php get_template_part(THEME_CMP, 'also-avaliable') ?>
-</div>
-
-<div class="container mx-auto py-10 border-b border-brown/20">
+<div class="container mx-auto py-10 border-t border-b border-brown/20">
     <div class="text-4xl font-light text-center font-alt text-brown mb-5">You may also like:</div>
 
     <?php

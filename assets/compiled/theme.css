@@ -82,6 +82,7 @@ input.qty {
   color: #7E5C20;
   border-radius: 1000px;
   border: 1px solid #7E5C20;
+  max-width: 100px;
 }
 
 .accordion-trigger {
@@ -447,6 +448,22 @@ li.product > a > img {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.variations_button {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  gap: 1.25rem;
+}
+.variations_button .qty {
+  height: 48px;
+}
+@media (max-width: 1240px) {
+  .variations_button {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /*# sourceMappingURL=theme.css.map */
