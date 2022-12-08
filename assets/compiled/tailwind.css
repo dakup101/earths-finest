@@ -1124,10 +1124,6 @@ ul, ol {
   height: 0px;
 }
 
-.h-80 {
-  height: 20rem;
-}
-
 .h-72 {
   height: 18rem;
 }
@@ -1996,10 +1992,6 @@ ul, ol {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .xs\:grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
   .xs\:justify-self-end {
     justify-self: end;
   }
@@ -2069,6 +2061,10 @@ ul, ol {
 
   .sm\:h-64 {
     height: 16rem;
+  }
+
+  .sm\:h-full {
+    height: 100%;
   }
 
   .sm\:h-screen {

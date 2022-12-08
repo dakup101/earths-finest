@@ -6,7 +6,7 @@ $title = get_field('recipes_archive_title', 'options');
 $posts_counter = 0;
 ?>
 
-<div class="relative bg-cover min-h-72 sm:min-h-screen bg-center flex items-center justify-center"
+<div class="relative bg-cover h-72 sm:h-screen mt-5 bg-center flex items-center justify-center"
     style="background-image:url('<?php echo $banner ?>')">
     <div class="container mx-auto pb-16">
         <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
