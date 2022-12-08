@@ -36,10 +36,18 @@ if ($isCat) {
         class="w-full absolute -bottom-1 right-0 -scale-x-100">
 </div>
 <div class="container mx-auto">
+    <?php if ($isCat): ?>
     <div
-        class="text-center text-dark-light font-light mx-auto mb-14 pt-3 max-w-2xl md:float-right md:-translate-y-20 xl:-translate-y-32 text-2xl">
+        class="text-center text-dark-light font-light mx-auto mb-14 pt-3 max-w-2xl md:float-right md:-translate-y-20 xl:-translate-y-32 leading-relaxed">
         <?php echo $desc ?>
     </div>
+    <?php else: ?>
+    <div class="text-center text-dark-light font-light mx-auto mb-14 pt-3 max-w-2xl leading-relaxed md:-translate-y-16">
+        <?php echo $desc ?>
+    </div>
+
+    <?php endif; ?>
+
 </div>
 <div class="container mx-auto flex md:-translate-y-16 xl:-translate-y-20">
     <?php

@@ -43,7 +43,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 	?>
 
-    <h3 class="text-brown text-xl sm:text-2xl font-alt font-semibold text-center">
+    <h3 class="text-brown text-xl sm:text-2xl font-alt mt-3 text-center">
         <?php echo $product->get_name(); ?>
     </h3>
 

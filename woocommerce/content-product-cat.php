@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	do_action( 'woocommerce_before_subcategory', $category );
 	do_action( 'woocommerce_before_subcategory_title', $category );
 	?>
-    <p class="text-brown text-xl sm:text-2xl font-alt font-semibold text-center">
+    <p class="text-brown text-xl sm:text-2xl font-alt mt-3 text-center">
         <?php echo $category->name; ?>
     </p>
     <?php

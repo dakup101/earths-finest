@@ -14,7 +14,7 @@ $usage = $args['usage'];
         <img src="<?php echo $img; ?>" alt="" class="w-full">
     </div>
     <div class="sm:col-span-6 z-10 px-5 sm:px-10 mb-24">
-        <div class="cat-text text text-dark-light">
+        <div class="cat-text text text-dark-light text-base font-light leading-loose">
             <?php echo $desc; ?>
         </div>
     </div>
@@ -22,7 +22,7 @@ $usage = $args['usage'];
 </div>
 
 <div class="bg-biege-dark py-10 w-full">
-    <div class="usage-text text max-w-5xl mx-auto text-dark-light px-5 sm:text-xl">
+    <div class="usage-text text max-w-5xl mx-auto text-dark-light px-5 text-base font-light leading-relaxed">
         <?php echo $usage; ?>
     </div>
 </div>
