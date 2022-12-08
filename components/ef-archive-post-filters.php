@@ -9,7 +9,7 @@
         $els = get_terms( $args );
         ?>
 
-        <h3 class="font-alt text-brown text-4xl leading-tight font-semibold">Categories:</h3>
+        <h3 class="font-alt text-brown text-2xl mb-3 leading-tight uppercase">Categories:</h3>
         <ul class="list-none p-0">
             <?php foreach ($els as $el): ?>
             <li>

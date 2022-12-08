@@ -9,7 +9,7 @@
         $els = get_terms( $args );
         ?>
 
-        <h3 class="font-alt text-brown text-4xl leading-tight font-semibold">Meals:</h3>
+        <h3 class="font-alt text-brown text-2xl mb-3 leading-tight uppercase">Meals:</h3>
         <ul class="list-none p-0">
             <?php foreach ($els as $el): ?>
             <li>
@@ -32,8 +32,8 @@
         $diets = get_terms( $args );
         ?>
 
-        <h3 class="font-alt text-brown text-4xl leading-tight font-semibold">Diet:</h3>
-        <ul class="list-none p-0">
+        <h3 class="font-alt text-brown text-2xl mb-3 leading-tight uppercase">Diet:</h3>
+        <ul class=" list-none p-0">
             <?php foreach ($diets as $el): ?>
             <li>
                 <label for="<?php echo $el->slug; ?>" class="ef-checkbox">
@@ -67,7 +67,7 @@
         wp_reset_postdata();
         ?>
 
-        <h3 class="font-alt text-brown text-4xl leading-tight font-semibold">Diet:</h3>
+        <h3 class="font-alt text-brown text-2xl mb-3 leading-tight uppercase">Cooked With:</h3>
         <ul class="list-none p-0">
             <?php foreach ($cooked_with as $el): ?>
             <li>
