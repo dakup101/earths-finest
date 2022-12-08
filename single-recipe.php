@@ -101,5 +101,9 @@ foreach ($ingridients as $term){
         </div>
     </div>
 </div>
+<div class="container mx-auto my-5">
+    <h2 class="text-4xl text-center text-brown my-10">Other Recipes You May Like:</h2>
+    <?php get_template_part( THEME_CMP, 'recipes-slider' ) ?>
+</div>
 <?php get_template_part(THEME_CMP , 'about-section'); ?>
 <?php get_footer(); ?>

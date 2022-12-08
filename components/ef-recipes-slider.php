@@ -6,7 +6,7 @@ $args = array(
 );
 $recipes = new WP_Query($args);
 ?>
-<div class="ef-recipes-slider overflow-hidden relative px-12 smpx-16 lg:px-20">
+<div class="ef-recipes-slider overflow-hidden relative px-12 sm:px-16 lg:px-20">
     <div class="slide-prev slide-nav text-brown transition-all left-0 h-full bg-white flex items-center">
         <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg"
             class="w-8 sm:w-10 lg:w-14 fill-current drop-shadow-xl rotate-180 opacity-70 hover:opacity-100 cursor-pointer transition-all">
