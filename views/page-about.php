@@ -14,9 +14,9 @@ $posts_counter = 0;
         <h1 class="text-5xl sm:text-8xl text-white text-center font-semibold"><?php echo $title; ?></h1>
         <?php endif; ?>
     </div>
-    <img src="<?php echo THEME_IMG . 'biege-wave-up.svg' ?>" alt="" class="w-full absolute -bottom-1 right-0">
+    <img src="<?php echo THEME_IMG . 'wave-white-up.svg' ?>" alt="" class="w-full absolute -bottom-1 right-0">
 </div>
-<section class="bg-biege-dark pt-5 <?php if (empty(get_field('team'))) echo 'pb-10'; ?>">
+<section class="bg-white pt-5 <?php if (empty(get_field('team'))) echo 'pb-10'; ?>">
     <div class="container mx-auto grid gap-4">
         <div>
             <?php echo get_field('about_text_1') ?>
@@ -56,6 +56,5 @@ $posts_counter = 0;
     </div>
 </section>
 <?php else: ?>
-<hr>
 <?php endif; ?>
 <?php get_footer('normal'); ?>
