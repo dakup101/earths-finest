@@ -7,7 +7,7 @@ $link = get_the_permalink();
 ?>
 
 <a href="<?php echo $link; ?>" class="block">
-    <figure class="w-full h-64 rounded-lg shadow-xl overflow-hidden relative">
+    <figure class="w-full h-52 lg:h-64 rounded-lg shadow-xl overflow-hidden relative">
         <img src="<?php echo $img ?>" alt="<?php echo $name ?>" class="object-cover object-center w-full h-full">
         <div
             class="absolute top-0 left-0 h-full w-full flex items-center justify-center bg-brown/60 text-white opacity-0 hover:opacity-100 transition-all font-semibold font-alt">

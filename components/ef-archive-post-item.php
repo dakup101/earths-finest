@@ -16,13 +16,10 @@ $link = get_the_permalink();
             <figure class="w-full h-44 sm:h-64 rounded-lg shadow-xl overflow-hidden relative">
                 <img src="<?php echo $img ?>" alt="<?php echo $name ?>"
                     class="object-cover object-center w-full h-full">
-                <div
-                    class="absolute top-0 left-0 h-full w-full flex items-center justify-center bg-brown/60 text-white opacity-0 hover:opacity-100 transition-all">
-                </div>
             </figure>
         </a>
         <span
-            class="mb-2 uppercase text-brownish bg-biege text-xs absolute block -bottom-1.5 p-3 rounded-lg shadow-lg font-light left-5 translate-y-1/2"><?php echo time_ago(); ?></span>
+            class="mb-2 uppercase text-brownish bg-biege text-xs absolute block -bottom-1.5 p-3 rounded-lg shadow-lg font-light left-5 translate-y-1/2"><?php echo get_field("reading_time") ?></span>
 
     </header>
     <main class="p-5 font-light">
