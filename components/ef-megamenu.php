@@ -30,7 +30,7 @@
                                 loading="lazy">
                         </div>
                     </figure>
-                    <span class="block w-full text-center font-alt text-2xl pt-5">
+                    <span class="block w-full text-center font-alt text-xl pt-5">
                         <?php echo $name ?>
                     </span>
                 </a>
