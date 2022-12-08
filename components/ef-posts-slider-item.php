@@ -14,6 +14,6 @@ $link = get_the_permalink();
         </div>
     </figure>
 </a>
-<a href="<?php echo $link; ?>" class="block mt-5 text-brown hover:text-dark transition-all text-2xl">
+<a href="<?php echo $link; ?>" class="block mt-5 text-brown hover:text-dark transition-all text-2xl font-alt">
     <?php echo $name; ?>
 </a>
