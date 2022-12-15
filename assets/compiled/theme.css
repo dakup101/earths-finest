@@ -466,4 +466,15 @@ li.product > a > img {
   }
 }
 
+.svg-bg svg {
+  transition: all 0.1s ease-in-out;
+  transform: scale(0.9);
+}
+.svg-bg:hover svg {
+  transform: scale(1.1);
+}
+.svg-bg + span {
+  z-index: 20;
+}
+
 /*# sourceMappingURL=theme.css.map */

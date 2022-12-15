@@ -478,3 +478,18 @@ li.product > a > img{
         align-items: flex-start;
     }
 }
+
+.svg-bg{
+    & svg{
+        transition: all .1s ease-in-out;
+        transform: scale(0.9)
+    }
+    &:hover{
+        & svg{
+            transform: scale(1.1);
+        }
+    }
+    & + span{
+        z-index: 20;
+    }
+}
