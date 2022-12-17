@@ -89,7 +89,7 @@ async function fetchRecipes() {
 	data.append("diet", activeFilters.diet.join(","));
 	data.append("product", activeFilters.product.join(","));
 	data.append("page", activeFilters.page);
-	let request = await fetch(ajaxUrl, {
+	await fetch(ajaxUrl, {
 		method: "POST",
 		body: data,
 		credentials: "same-origin",

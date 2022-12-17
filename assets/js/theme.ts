@@ -88,5 +88,3 @@ function hideMenu(menu) {
 }
 
 export const ajaxUrl = "/wp-admin/admin-ajax.php";
-
-function checkPosition(el) {}

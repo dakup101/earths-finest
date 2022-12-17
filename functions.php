@@ -88,10 +88,6 @@ function custom_checkout_payment() {
   } else {
       $available_gateways = array();
   }
-
-  if ( ! is_ajax() ) {
-      // do_action( 'woocommerce_review_order_before_payment' );
-  }
   ?>
 <div id="payment" class="woocommerce-checkout-payment-gateways">
     <?php if ( WC()->cart->needs_payment() ) : ?>
