@@ -9,7 +9,7 @@ $link = get_the_permalink();
 ?>
 
 <article>
-    <a href="<?php echo $link; ?>" class=" col-span-1 rounded-lg hover:bg-biege block transition-all">
+    <a href="<?php echo $link; ?>" class=" col-span-1 rounded-lg block transition-all">
         <header href="<?php echo $link; ?>" class="block">
             <figure class="w-full h-44 sm:h-64 rounded-lg shadow-xl overflow-hidden relative">
                 <img src="<?php echo $img ?>" alt="<?php echo $name ?>"

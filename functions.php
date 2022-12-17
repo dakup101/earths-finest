@@ -24,7 +24,7 @@ add_action( 'init', function() {
 
 function add_cond_to_where( $where ) {
   //Replace showings_$ with repeater_slug_$
-  $where = str_replace("meta_key = 'cooked_with_$", "meta_key LIKE 'cooked_with_%", $where);
+  $where = str_replace("meta_key = 'cooked_with_cat_$", "meta_key LIKE 'cooked_with_cat_%", $where);
   return $where;
 }
 

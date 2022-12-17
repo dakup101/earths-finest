@@ -10,7 +10,7 @@ $link = get_the_permalink();
 
 
 
-<article class="sm:col-span-2 grid sm:grid-cols-2 items-center">
+<article class="sm:col-span-2">
     <header>
         <a href="<?php echo $link; ?>" class="block">
             <figure class="w-full h-44 sm:h-80 rounded-lg shadow-xl overflow-hidden relative">
@@ -19,16 +19,22 @@ $link = get_the_permalink();
             </figure>
         </a>
     </header>
-    <main class="p-10 font-light">
-        <span class="mb-2 uppercase text-brownish/60 text-md"><?php echo get_field("reading_time") ?></span>
+    <main>
         <h2>
             <a href="<?php echo $link; ?>"
-                class="block mt-5 text-brown hover:text-dark transition-all text-3xl font-alt mb-3 font-semibold">
+                class="block mt-5 text-brown hover:text-dark transition-all text-4xl font-alt font-semibold">
                 <?php echo $name; ?>
             </a>
         </h2>
-
-        <div class=" text-md text-dark/70">
+        <div class="flex items-center text-brown-light my-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current w-5 h-5 mr-3" viewBox="0 0 16 16">
+                <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z" />
+                <path
+                    d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z" />
+            </svg>
+            <p>Reading time: <?php echo get_field("reading_time") ?></p>
+        </div>
+        <div>
             <?php the_excerpt() ?>
         </div>
     </main>

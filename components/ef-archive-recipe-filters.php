@@ -57,10 +57,10 @@
        
         while ($recipes->have_posts()) {
             $recipes->the_post();
-            $ingridients = get_field('cooked_with');
+            $ingridients = get_field('cooked_with_cat');
             if (!empty($ingridients)) {
                 foreach ($ingridients as $el) {
-                    if (!in_array($el, $cooked_with)) array_push($cooked_with, $el);
+                    if (!in_array($el['product'], $cooked_with)) array_push($cooked_with, $el['product']);
                 }
             }
         }
@@ -69,16 +69,13 @@
 
         <h3 class="font-alt text-brown text-2xl mb-3 leading-tight uppercase">Cooked With:</h3>
         <ul class="list-none p-0">
-            <?php foreach ($cooked_with as $el): ?>
+            <?php  foreach($cooked_with as $cat_id): ?>
             <li>
-                <?php
-                $product = wc_get_product($el['product']);
-                ?>
-                <label for="<?php echo $product->get_slug() ?>" class="ef-checkbox">
-                    <input type="checkbox" value="<?php echo $product->get_id(); ?>" data-filter="product"
-                        class="hidden recipe-filter" data-id="<?php echo $product->get_id() ?>"
-                        id="<?php echo $product->get_slug()?>">
-                    <span><?php echo $product->get_name() ?></span>
+                <?php  $cat = get_term_by( 'id', $cat_id, 'product_cat'); ?>
+                <label for="<?php echo $cat->slug ?>" class="ef-checkbox">
+                    <input type="checkbox" value="<?php echo $cat->term_id; ?>" data-filter="product"
+                        class="hidden recipe-filter" data-id="<?php echo $cat->term_id ?>" id="<?php echo $cat->slug?>">
+                    <span><?php echo $cat->name   ?></span>
                 </label>
             </li>
             <?php endforeach; ?>

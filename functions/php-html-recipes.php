@@ -42,11 +42,12 @@ if (!empty($args['tax_query'])) {
 
 if (!empty($products)) {
     $prod_array = explode(",", $products);
+    print_r($prod_array);
     $args['meta_query'] = array(
     );
     foreach ($prod_array as $el) {
         array_push($args['meta_query'], array(
-            'key' => 'cooked_with_$_product',
+            'key' => 'cooked_with_cat_$_product',
             'value' => $el,
             'compare' => '='
         ));
