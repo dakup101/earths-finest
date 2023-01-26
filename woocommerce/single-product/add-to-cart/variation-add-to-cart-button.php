@@ -28,14 +28,14 @@ global $product;
 	do_action( 'woocommerce_after_add_to_cart_quantity' );
 	?>
 
-    <div class="flex flex-col sm:flex-row">
-        <button type="submit" class="ef-accent-alt-btn w-full sm:w-fit single_add_to_cart_button">
+    <div class="flex justify-center sm:justify-start w-full sm:w-auto items-center flex-col sm:flex-row">
+        <button type="submit" class="ef-accent-alt-btn w-full max-w-xs w-full sm:w-fit single_add_to_cart_button">
             <span class="block relative"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></span>
         </button>
 
         <?php if (!empty(get_field('amazon_link'))): ?>
         <a href="<?php echo get_field('amazon_link') ?>"
-            class="ef-accent-btn sm:w-fit mt-5 sm:ml-5 sm:mt-0 w-full text-center">
+            class="ef-accent-btn max-w-xs w-full sm:w-fit mt-5 sm:ml-5 sm:mt-0 w-full text-center">
             <span class="relative z-10">Shop at Amazon</span>
         </a>
         <?php endif; ?>

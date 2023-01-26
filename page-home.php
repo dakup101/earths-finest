@@ -1,6 +1,6 @@
 <?php /* Template Name: Homepage */ ?>
 <?php get_header(); ?>
-<main>
+<main class="text-dark-light">
     <section>
         <?php get_template_part(THEME_CMP, 'hero'); ?>
     </section>

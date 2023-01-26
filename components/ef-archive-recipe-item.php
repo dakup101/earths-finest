@@ -27,7 +27,7 @@ $link = get_the_permalink();
                 </div>
             </figure>
         </header>
-        <main class="px-5 pb-5">
+        <main class="px-5 pb-5 text-dark-light">
             <h2 href="<?php echo $link; ?>"
                 class="block mt-5 mb-3 text-brown hover:text-dark transition-all text-2xl font-alt font-semibold">
                 <?php echo $name; ?>

@@ -47,7 +47,7 @@ $link = get_the_permalink();
             <span class="font-bold">&nbsp; | &nbsp;</span>
             <p>Serves: <?php echo $serves ?></p>
         </div>
-        <div>
+        <div class>
             <?php the_excerpt() ?>
         </div>
     </main>

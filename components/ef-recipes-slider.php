@@ -1,9 +1,41 @@
 <?php
+$cookie_count = false;
+$cookie_1 = null;
+$cookie_2 = null;
+$cookie_3 = null;
 $args = array(
     "post_type" => "recipe",
     "numberposts" => 9,
     "orderby" => "rand",
 );
+
+$cookie_saved = explode(", ", $_COOKIE["recipes_viewed"]);
+switch(count($cookie_saved)){
+    case 1: {
+        $cookie_1 = $cookie_saved[0];
+        $cookie_2 = null;
+        $cookie_3 = null;
+        break;
+    }
+    case 2: {
+        $cookie_1 = $cookie_saved[0];
+        $cookie_2 = $cookie_saved[1];
+        $cookie_3 = null;
+        break;
+    }
+    case 3: {
+        $cookie_1 = $cookie_saved[0];
+        $cookie_2 = $cookie_saved[1];
+        $cookie_3 = $cookie_saved[2];
+        break;
+    }
+    default: {
+        $cookie_1 = null;
+        $cookie_2 = null;
+        $cookie_3 = null;
+        break;
+    }
+}
 $recipes = new WP_Query($args);
 ?>
 <div class="ef-recipes-slider overflow-hidden relative px-12 sm:px-16 lg:px-20">
@@ -15,14 +47,15 @@ $recipes = new WP_Query($args);
         </svg>
     </div>
     <div class="swiper-wrapper">
-        <?php if ($recipes->have_posts()) : ?>
-        <?php while ($recipes->have_posts()): $recipes->the_post() ?>
-        <div class="swiper-slide">
-            <?php get_template_part( THEME_CMP, 'recipes-slider-item' ) ?>
+            <?php if ($recipes->have_posts()) : ?>
+                <?php while ($recipes->have_posts()): $recipes->the_post() ?>
+                <div class="swiper-slide">
+                    <?php get_template_part( THEME_CMP, 'recipes-slider-item' ) ?>
+                </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+            <?php wp_reset_postdata();?>
         </div>
-        <?php endwhile; ?>
-        <?php endif; ?>
-    </div>
     <div class="slide-next slide-nav text-brown transition-all right-0 h-full bg-white flex items-center">
         <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg"
             class="w-8 sm:w-10 lg:w-14 fill-current drop-shadow-xl opacity-70 hover:opacity-100 cursor-pointer transition-all">
@@ -31,4 +64,4 @@ $recipes = new WP_Query($args);
         </svg>
     </div>
 </div>
-<?php wp_reset_postdata();?>
+

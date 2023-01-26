@@ -1578,8 +1578,8 @@ ul, ol {
   padding-top: 2.5rem;
 }
 
-.pt-52 {
-  padding-top: 13rem;
+.pt-72 {
+  padding-top: 18rem;
 }
 
 .pb-5 {
@@ -1592,14 +1592,6 @@ ul, ol {
 
 .pt-3 {
   padding-top: 0.75rem;
-}
-
-.pt-48 {
-  padding-top: 12rem;
-}
-
-.pb-32 {
-  padding-bottom: 8rem;
 }
 
 .text-center {
@@ -2067,6 +2059,10 @@ ul, ol {
     width: fit-content;
   }
 
+  .sm\:w-auto {
+    width: auto;
+  }
+
   .sm\:w-4 {
     width: 1rem;
   }
@@ -2102,6 +2098,10 @@ ul, ol {
 
   .sm\:flex-row {
     flex-direction: row;
+  }
+
+  .sm\:justify-start {
+    justify-content: flex-start;
   }
 
   .sm\:justify-end {
@@ -2158,12 +2158,24 @@ ul, ol {
     padding-right: 4rem;
   }
 
+  .sm\:pt-52 {
+    padding-top: 13rem;
+  }
+
   .sm\:pr-10 {
     padding-right: 2.5rem;
   }
 
   .sm\:pl-10 {
     padding-left: 2.5rem;
+  }
+
+  .sm\:pl-16 {
+    padding-left: 4rem;
+  }
+
+  .sm\:text-left {
+    text-align: left;
   }
 
   .sm\:text-8xl {
@@ -2264,16 +2276,6 @@ ul, ol {
   .md\:px-32 {
     padding-left: 8rem;
     padding-right: 8rem;
-  }
-
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 }
 

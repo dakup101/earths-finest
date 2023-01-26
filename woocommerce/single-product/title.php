@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-the_title( '<h1 class="product_title entry-title text-5xl text-brown-light mb-5">', '</h1>' );
+the_title( '<h1 class="product_title entry-title text-center sm:text-left text-5xl text-brown-light mb-5">', '</h1>' );
 
 
 $product_attributes = explode(", ", $product->get_attribute("pa_labels"));
@@ -40,13 +40,13 @@ foreach ($attributes as $attr){
 
 ?>
 
-<div class="grid grid-cols-3 sm:grid-cols-5 my-10">
+<div class="grid grid-cols-3 sm:grid-cols-5 my-10 gap-5">
     <?php foreach($attrData as $el) : ?>
-    <div class="flex items-center flex-col mr-5">
+    <div class="flex items-center flex-col">
         <div class="p-3 w-fit aspect-square rounded-full bg-brownish mb-3">
             <img src="<?php echo $el['icon']?>" alt="" class="w-7">
         </div>
-        <div class="uppercase font-light text-sm">
+        <div class="uppercase font-light text-sm text-center">
             <?php echo $el['name'] ?>
         </div>
     </div>
@@ -57,7 +57,8 @@ foreach ($attributes as $attr){
 <div class="grid gap-5 mb-10">
     <?php foreach(get_field('accordions') as $el) : ?>
     <div class="accordion-item">
-        <div class="accordion-trigger font-alt leading-3 cursor-pointer text-2xl flex items-center text-brown">
+        <div
+            class="accordion-trigger font-alt leading-3 cursor-pointer text-2xl flex justify-center sm:justify-start items-center text-brown">
             <?php echo $el['accordion_name']?>
             <div class="bg-brownish p-1 w-fit rounded-full ml-5 mb-2">
                 <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg"

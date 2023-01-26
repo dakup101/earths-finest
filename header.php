@@ -93,6 +93,7 @@
                             <?php echo $link_text ?>
                         </div>
                     </a>
+                    <?php // if (isset($_COOKIE['products_viewed'])) echo ($_COOKIE['products_viewed']); ?>
                 </div>
             </div>
             <?php get_template_part( THEME_CMP, 'megamenu' ) ?>

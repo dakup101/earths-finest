@@ -217,10 +217,19 @@ input.qty{
     list-style: none;
 }
 
-.woocommerce-input-wrapper input[type="text"], .woocommerce-input-wrapper input[type="tel"], .woocommerce-input-wrapper input[type="email"]{
+.woocommerce-input-wrapper input[type="text"], .woocommerce-input-wrapper input[type="tel"], .woocommerce-input-wrapper input[type="email"], .woocommerce-input-wrapper select{
     padding: 15px 25px;
     border: 1px solid #DDDCD3;
     border-radius: 1000px;
+    background: #fff;
+    transition: all .2s ease-in-out;
+    &:hover, &:focus{
+        border: 1px solid #7e5c20;
+        outline: none;
+    }
+    &:focus{
+        box-shadow: 0 4px 4px rgba(0,0,0,.1);
+    }
 }
 
 .ef-contact{
@@ -274,15 +283,6 @@ input.qty{
     }
     & tfoot td{
         text-align: right;
-    }
-}
-
-.the-delivery{
-    & * {
-        display: none !important;
-    }
-    & ul{
-        display: block !important;
     }
 }
 .product-category a{
@@ -485,10 +485,20 @@ li.product > a > img{
     }
     &:hover{
         & svg{
-            transform: scale(1.1);
+            transform: scale(1);
         }
     }
     & + span{
         z-index: 20;
+    }
+}
+
+.the-delivery{
+    transition: all .2s ease-in-out;
+    &.loading{
+        opacity: .5;
+    }
+    &.loaded{
+        color: #fff;
     }
 }

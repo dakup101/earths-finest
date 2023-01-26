@@ -7,6 +7,7 @@ import accordion from "./handles/accordion_handle";
 import recipesFilter from "./handles/recipesFilter_handle";
 import postsFilter from "./handles/postsFilter_handle";
 import recipesSliderFetc from "./handles/recipesSliderFetch_handle";
+import shipping_methods_handle from "./handles/shippingMethods_handle";
 
 // Rendered
 window.addEventListener("DOMContentLoaded", () => {
@@ -18,6 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	recipesFilter();
 	postsFilter();
 	recipesSliderFetc();
+	shipping_methods_handle();
 
 	let mobileMenu = document.querySelector(".mobile-menu");
 	let openMobileMenu = document.querySelectorAll(".open-mobile-menu");

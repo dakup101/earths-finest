@@ -47,7 +47,7 @@ foreach ($ingridients as $term){
 <div class="container mx-auto grid sm:grid-cols-7">
     <div
         class="sm:col-span-5 sm:mr-16 relative after:hidden sm:after:block after:absolute after:right-0 after:top-0 after:h-full after:w-0.5 after:bg-accent/20">
-        <div class="sm:pr-16">
+        <div class="sm:pr-16 text-dark-light">
             <div class="mb-10">
                 <h2 class="text-brown text-4xl mb-5 leading-normal">Ingridients:</h2>
                 <?php echo get_field('ingridients') ?>
@@ -59,6 +59,7 @@ foreach ($ingridients as $term){
         </div>
         <hr class="border border-accent/20">
         <div class="my-5">
+            <span class="text-lg font-bold">SHARE ON SOCIAL:</span>
             <?php
  if(function_exists('zm_sh_btn')){
 	$options['iconset']		= 'flat';
@@ -81,7 +82,7 @@ foreach ($ingridients as $term){
             $name = $product->get_name();
             $link = $product->get_permalink();
             ?>
-        <a href="<?php echo $link ?>" class="flex items-center hover:text-brown transition-all mb-3">
+        <a href="<?php echo $link ?>" class="flex items-center text-dark-light hover:text-brown transition-all mb-3">
 
             <img src="<?php echo $img ?>" alt="" class="w-28">
             <h3 class="font-sans font-semibold uppercase ml-3 text-sm"><?php echo $name ?></h3>
@@ -93,7 +94,7 @@ foreach ($ingridients as $term){
                 <div class="p-3 w-fit aspect-square rounded-full bg-brownish mb-3">
                     <img src="<?php echo $el['icon']?>" alt="" class="w-7">
                 </div>
-                <div class="uppercase font-light text-sm">
+                <div class="uppercase font-light text-dark-light text-sm">
                     <?php echo $el['name'] ?>
                 </div>
             </div>

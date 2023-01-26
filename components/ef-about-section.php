@@ -1,4 +1,4 @@
-<section class="ef-about text-white relative pt-52"
+<section class="ef-about text-white relative pt-72 sm:pt-52"
     style="background-image: url('<?php echo get_field('pre-footer_background', 'options') ?>')">
     <div class="absolute top-0 left-0 w-full h-full">
     </div>

@@ -35,7 +35,8 @@ require THEME_FUN . 'theme-scripts.php';
 require THEME_FUN . 'register-menus.php';
 require THEME_FUN . 'menu-array.php';
 require THEME_FUN . 'shapes-switch.php';
-
+require THEME_FUN . 'recommedations-functions.php';
+require THEME_FUN . 'return-shipping-options.php';
 
 // Post Types
 require THEME_FUN . 'recipe-post-type.php';
@@ -168,4 +169,105 @@ function my_wc_add_to_cart_message_html( $message, $products ) {
     }
 
     return $message;
+}
+
+
+add_action('wp_footer', 'woocommerce_custom_update_checkout', 50);
+
+function woocommerce_custom_update_checkout()
+{
+  if (is_checkout()) {
+?>
+<script type="text/javascript">
+jQuery(document).ready($ => {
+
+    $('#billing_country').on('change', () => {
+
+        $('body').trigger('update_checkout', {
+
+            update_shipping_method: true
+
+        });
+
+    });
+
+    $('#billing_address_1').on('change', () => {
+
+        $('body').trigger('update_checkout', {
+
+            update_shipping_method: true
+
+        });
+
+    });
+});
+</script>
+
+<?php
+
+  }
+
+}
+
+function woo_dequeue_select2() {
+    if ( class_exists( 'woocommerce' ) ) {
+        wp_dequeue_style( 'select2' );
+        wp_deregister_style( 'select2' );
+
+        wp_dequeue_script( 'selectWoo');
+        wp_deregister_script('selectWoo');
+    } 
+}
+add_action( 'wp_enqueue_scripts', 'woo_dequeue_select2', 100 );
+
+add_action( 'wp_footer', 'trigger_for_ajax_add_to_cart' );
+function trigger_for_ajax_add_to_cart() {
+    ?>
+<script type="text/javascript">
+(function($) {
+    $('body').on('update_checkout', function() {
+        console.log('--- update_checkout ---');
+        document.dispatchEvent(
+            new CustomEvent('update_checkout')
+        );
+    });
+    $('body').on('updated_checkout', function() {
+        console.log('--- updated_checkout ---');
+        document.dispatchEvent(
+            new CustomEvent('updated_checkout')
+        );
+    });
+    $('body').on('payment_method_selected', function() {
+        console.log('--- payment_method_selected ---');
+        document.dispatchEvent(
+            new CustomEvent('payment_method_selected')
+        );
+    });
+    $('body').on('wc_cart_emptied', function() {
+        console.log('--- wc_cart_emptied ---');
+        document.dispatchEvent(
+            new CustomEvent('wc_cart_emptied')
+        );
+    });
+    $('body').on('updated_wc_div', function() {
+        console.log('--- updated_wc_div ---');
+        document.dispatchEvent(
+            new CustomEvent('updated_wc_div')
+        );
+    });
+    $('body').on('added_to_cart', function() {
+        console.log('--- added_to_cart ---');
+        document.dispatchEvent(
+            new CustomEvent('added_to_cart')
+        );
+    });
+    $('body').on('removed_from_cart', function() {
+        console.log('--- removed_from_cart ---');
+        document.dispatchEvent(
+            new CustomEvent('removed_from_cart')
+        );
+    });
+})(jQuery);
+</script>
+<?php
 }

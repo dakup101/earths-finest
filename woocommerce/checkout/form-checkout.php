@@ -18,7 +18,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 
     <div class="container mx-auto grid sm:grid-cols-3">
-        <div class="sm:col-span-2 sm:pr-10">
+        <div class="sm:col-span-2 sm:pr-16">
             <h1 class="text-4xl text-brown mb-7">Checkout</h1>
             <?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
             <div class="text-xl font-semibold tracking-widest mb-5">Contact Information</div>
@@ -55,30 +55,38 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 					'type'        => 'text'
 				)); ?>
                 </div>
-                <div>
-                    <?php woocommerce_form_field( 'billing_country', array( 'type' => 'country' ) ); ?>
-                </div>
             </div>
             <div class="text-xl font-semibold tracking-widest mb-5">Delivery Method</div>
             <div class="grid xs:grid-cols-4 gap-3 mb-8">
                 <div class="xs:col-span-4">
                     <div class="the-delivery">
                         <?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+
+                        <?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+
                         <?php wc_cart_totals_shipping_html(); ?>
+
+                        <?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+
                         <?php endif; ?>
                     </div>
                 </div>
+
+
                 <div class="xs:col-span-2">
-                    <?php woocommerce_form_field( 'billing_city', array(
-					'placeholder' => 'City',
+                    <?php woocommerce_form_field( 'billing_country', array( 'type' => 'country' ) ); ?>
+                </div>
+                <div class="xs:col-span-2">
+                    <?php woocommerce_form_field( 'billing_address_1', array(
+					'placeholder' => 'Address',
 					'required'    => true,
 					'label'       => '',
 					'type'        => 'text'
 				)); ?>
                 </div>
                 <div class="xs:col-span-2">
-                    <?php woocommerce_form_field( 'billing_address_1', array(
-					'placeholder' => 'Address',
+                    <?php woocommerce_form_field( 'billing_city', array(
+					'placeholder' => 'City',
 					'required'    => true,
 					'label'       => '',
 					'type'        => 'text'
@@ -101,7 +109,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
             </div>
         </div>
         <div
-            class="sm:pl-10 py-5 relative before:hidden sm:before:block before:absolute before:w-0.5 before:bg-accent/30 before:h-full before:top-0 before:left-0">
+            class="sm:pl-16 py-5 relative before:hidden sm:before:block before:absolute before:w-0.5 before:bg-accent/30 before:h-full before:top-0 before:left-0">
             <?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
             <div id="order_review" class="woocommerce-checkout-review-order">
                 <div>
