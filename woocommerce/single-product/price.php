@@ -20,8 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $product;
-
+if (is_UAE()) :
 ?>
 <p
     class="text-xl text-brown-light text-center sm:text-left font-bold <?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>">
     <?php echo $product->get_price_html(); ?></p>
+<?php endif; ?>

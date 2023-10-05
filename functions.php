@@ -271,3 +271,47 @@ function trigger_for_ajax_add_to_cart() {
 </script>
 <?php
 }
+
+
+add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
+
+function change_existing_currency_symbol( $currency_symbol, $currency ) {
+     switch( $currency ) {
+          case 'AED': $currency_symbol = 'AED'; break;
+     }
+     return $currency_symbol;
+}
+
+function is_UAE(){
+	$geo_instance  = new WC_Geolocation();
+	// Get geolocated user geo data.
+	$user_geodata = $geo_instance->geolocate_ip();
+
+	// Get current user GeoIP Country
+	$country = $user_geodata['country'];
+	
+// 	if ($country == "AE") return true;
+	return false;
+}
+
+add_action( 'woocommerce_variable_add_to_cart', 'bbloomer_update_price_with_variation_price' );
+  
+function bbloomer_update_price_with_variation_price() {
+   global $product;
+   $price = $product->get_price_html();
+   wc_enqueue_js( "      
+      $(document).on('found_variation', 'form.cart', function( event, variation ) {   
+         if(variation.price_html) $('.summary > p.price').html(variation.price_html);
+         $('.woocommerce-variation-price').hide();
+      });
+      $(document).on('hide_variation', 'form.cart', function( event, variation ) {   
+         $('.summary > p.price').html('" . $price . "');
+      });
+   " );
+}
+
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');

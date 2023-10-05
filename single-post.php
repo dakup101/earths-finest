@@ -14,7 +14,7 @@ $banner = get_field('banner');
     <img src="<?php echo THEME_IMG . 'wave-white-up.svg' ?>" alt="" class="w-full absolute -bottom-1 right-0">
 </div>
 <div class="container max-w-4xl mx-auto pt-10">
-    <div class="mb-5 text-dark-light">
+    <div class="mb-5 text-dark-light blog-text">
         <?php the_content() ?>
     </div>
     <hr class="border border-accent/20">

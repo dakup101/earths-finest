@@ -1,16 +1,16 @@
 <footer class="bg-biege-dark pt-10 pb-10">
     <div class="container mx-auto grid grid-cols-12">
-        <div class="col-span-12 text-center sm:col-span-4 px-5 sm:px-0 pt-5 sm:pt-5">
+        <div class="col-span-12 text-center sm:col-span-2 px-5 sm:px-0 pt-5 sm:pt-5">
             <img src="<?php echo THEME_IMG . 'logo-new.png' ?>" alt="" class="w-full mx-auto sm:mx-0"
                 style="max-width: 200px">
         </div>
-        <div class="col-span-6 sm:col-span-2 mt-10">
+        <div class="col-span-6 sm:col-span-3 mt-10">
             <nav class="w-full">
                 <ul class="grid gap-2 list-none p-0 font-alt">
-                    <?php foreach(wp_get_menu_array('footer_1')['menus'] as $el) :  ?>
+                    <?php foreach (wp_get_menu_array('footer_1')['menus'] as $el) :  ?>
                     <li class="ml-10 text-lg text-brown">
-                        <a href="<?php echo $el['url']?>"
-                            class="hover:text-dark transition-all font-alt font-semibold text-2xl">
+                        <a href="<?php echo $el['url'] ?>"
+                            class="hover:text-dark transition-all font-alt font-semibold text-xl">
                             <?php echo $el['title'] ?>
                         </a>
                     </li>
@@ -18,13 +18,13 @@
                 </ul>
             </nav>
         </div>
-        <div class="col-span-6 sm:col-span-2 mt-10">
+        <div class="col-span-6 sm:col-span-3 mt-10">
             <nav class="w-full">
                 <ul class="grid gap-2 list-none p-0 font-alt">
-                    <?php foreach(wp_get_menu_array('footer_2')['menus'] as $el) :  ?>
+                    <?php foreach (wp_get_menu_array('footer_2')['menus'] as $el) :  ?>
                     <li class="ml-10 text-lg text-brown">
-                        <a href="<?php echo $el['url']?>"
-                            class="hover:text-dark transition-all font-alt font-semibold text-2xl">
+                        <a href="<?php echo $el['url'] ?>"
+                            class="hover:text-dark transition-all font-alt font-semibold text-xl">
                             <?php echo $el['title'] ?>
                         </a>
                     </li>
@@ -32,7 +32,21 @@
                 </ul>
             </nav>
         </div>
-        <div class="col-span-12 sm:col-span-4 mt-10">
+        <div class="col-span-6 sm:col-span-3 mt-10">
+            <nav class="w-full">
+                <ul class="grid gap-2 list-none p-0 font-alt">
+                    <?php foreach (wp_get_menu_array('footer_3')['menus'] as $el) :  ?>
+                    <li class="ml-10 text-lg text-brown">
+                        <a href="<?php echo $el['url'] ?>"
+                            class="hover:text-dark transition-all font-alt font-semibold text-xl">
+                            <?php echo $el['title'] ?>
+                        </a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-span-12 sm:col-span-1 mt-10">
             <div class="flex justify-center sm:justify-end">
                 <a href="<?php echo get_field('global_scoial_fb', 'options') ?>"
                     class="raltive w-10 h-10 p-3 bg-brown-light text-white hover:bg-white hover:text-brown-light transition-all rounded-full ml-5 block">
@@ -61,7 +75,7 @@
                 d="M193.858 582.529C172.714 603.681 172.714 637.983 193.858 659.135C215.001 680.288 249.287 680.288 270.43 659.135L541.142 388.303C562.286 367.151 562.286 332.849 541.142 311.697L270.43 40.8646C249.287 19.7118 215.001 19.7118 193.858 40.8646C172.714 62.0173 172.714 96.3186 193.858 117.471L426.283 350L193.858 582.529Z" />
         </svg>
     </div>
-    <?php get_template_part( THEME_CMP, 'mobile-menu' ) ?>
+    <?php get_template_part(THEME_CMP, 'mobile-menu') ?>
     <script type="text/javascript"
         src="<?php echo get_template_directory_uri(); ?>/assets/cookies/divante.cookies.min.js">
     </script>

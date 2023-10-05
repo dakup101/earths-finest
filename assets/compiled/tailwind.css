@@ -1032,6 +1032,10 @@ ul, ol {
   margin-top: 0.5rem;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .block {
   display: block;
 }
@@ -1538,6 +1542,11 @@ ul, ol {
   padding-bottom: 0.5rem;
 }
 
+.px-14 {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+
 .pb-20 {
   padding-bottom: 5rem;
 }
@@ -1947,12 +1956,12 @@ ul, ol {
     bottom: 3.5rem;
   }
 
-  .xs\:col-span-4 {
-    grid-column: span 4 / span 4;
-  }
-
   .xs\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .xs\:col-span-4 {
+    grid-column: span 4 / span 4;
   }
 
   .xs\:w-44 {
@@ -2001,12 +2010,12 @@ ul, ol {
     grid-column: span 2 / span 2;
   }
 
-  .sm\:col-span-4 {
-    grid-column: span 4 / span 4;
-  }
-
   .sm\:col-span-3 {
     grid-column: span 3 / span 3;
+  }
+
+  .sm\:col-span-1 {
+    grid-column: span 1 / span 1;
   }
 
   .sm\:col-span-6 {
@@ -2028,6 +2037,10 @@ ul, ol {
 
   .sm\:mt-0 {
     margin-top: 0px;
+  }
+
+  .sm\:mt-20 {
+    margin-top: 5rem;
   }
 
   .sm\:h-screen {
@@ -2160,14 +2173,6 @@ ul, ol {
 
   .sm\:pt-52 {
     padding-top: 13rem;
-  }
-
-  .sm\:pr-10 {
-    padding-right: 2.5rem;
-  }
-
-  .sm\:pl-10 {
-    padding-left: 2.5rem;
   }
 
   .sm\:pl-16 {
@@ -2305,11 +2310,6 @@ ul, ol {
   .lg\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
-  }
-
-  .lg\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .lg\:text-xl {

@@ -17,9 +17,16 @@
 
 defined( 'ABSPATH' ) || exit;
 do_action( 'woocommerce_before_cart' ); ?>
+<?php if (!is_UAE()) : ?>
+<script>
+window.location.replace("<?php echo get_home_url() ?>");
+</script>
+<?php else : ?>
 <script>
 window.location.replace("<?php echo wc_get_checkout_url() ?>");
 </script>
+<?php endif; ?>
+
 <div class="text-4xl font-light text-center font-alt text-brown mb-5">Your Cart:</div>
 
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">

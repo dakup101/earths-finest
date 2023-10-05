@@ -28,7 +28,7 @@ global $product;
 	do_action( 'woocommerce_after_add_to_cart_quantity' );
 	?>
 
-    <div class="flex justify-center sm:justify-start w-full sm:w-auto items-center flex-col sm:flex-row">
+    <div class="flex justify-center sm:justify-start w-full sm:w-auto items-center flex-col sm:flex-row <?php if (!is_UAE()) echo "hidden" ?>">
         <button type="submit" class="ef-accent-alt-btn w-full max-w-xs w-full sm:w-fit single_add_to_cart_button">
             <span class="block relative"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></span>
         </button>

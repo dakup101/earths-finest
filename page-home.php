@@ -1,6 +1,9 @@
 <?php /* Template Name: Homepage */ ?>
 <?php get_header(); ?>
 <main class="text-dark-light">
+	<h1 class="hidden">
+		Earth's Finest
+	</h1>
     <section>
         <?php get_template_part(THEME_CMP, 'hero'); ?>
     </section>

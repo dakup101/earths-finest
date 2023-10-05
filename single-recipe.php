@@ -49,7 +49,7 @@ foreach ($ingridients as $term){
         class="sm:col-span-5 sm:mr-16 relative after:hidden sm:after:block after:absolute after:right-0 after:top-0 after:h-full after:w-0.5 after:bg-accent/20">
         <div class="sm:pr-16 text-dark-light">
             <div class="mb-10">
-                <h2 class="text-brown text-4xl mb-5 leading-normal">Ingridients:</h2>
+                <h2 class="text-brown text-4xl mb-5 leading-normal">Ingredients:</h2>
                 <?php echo get_field('ingridients') ?>
             </div>
             <div class="mb-5">
@@ -57,8 +57,11 @@ foreach ($ingridients as $term){
                 <?php echo get_field('method') ?>
             </div>
         </div>
+				<div class="my-5 recipe-fix">
+			&nbsp;
+		</div>
         <hr class="border border-accent/20">
-        <div class="my-5">
+        <div class="my-5 social-desktop">
             <span class="text-lg font-bold">SHARE ON SOCIAL:</span>
             <?php
  if(function_exists('zm_sh_btn')){
@@ -70,6 +73,9 @@ foreach ($ingridients as $term){
 }
 ?>
         </div>
+		<div class="my-5 recipe-fix">
+			&nbsp;
+		</div>
     </div>
     <div class="sm:col-span-2">
         <h2 class="text-xl uppercase text-brown mb-5 leading-normal">
@@ -101,6 +107,18 @@ foreach ($ingridients as $term){
             <?php endforeach; ?>
         </div>
     </div>
+	        <div class="my-5 social-mobile">
+            <span class="text-lg font-bold">SHARE ON SOCIAL:</span>
+            <?php
+ if(function_exists('zm_sh_btn')){
+	$options['iconset']		= 'flat';
+	$options['iconset_type']	= 'circle';
+	$options['class']			= 'in_php_function';
+	$options['icons']			= array( 'facebook', 'twitter', 'linkedin', 'pinterest' );
+	echo zm_sh_btn($options);
+}
+?>
+        </div>
 </div>
 <div class="container mx-auto my-5">
     <h2 class="text-4xl text-center text-brown my-10">Other Recipes You May Like:</h2>

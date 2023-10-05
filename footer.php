@@ -1,16 +1,16 @@
 <footer class="bg-biege-dark pt-36 xs:pt-32 pb-10">
     <div class="container mx-auto grid grid-cols-12">
-        <div class="col-span-12 text-center mb-5 sm:col-span-4 px-5 sm:px-0 pt-5 sm:pt-5">
+        <div class="col-span-12 text-center mb-5 sm:col-span-2 px-5 sm:px-0 pt-5 sm:pt-5">
             <img src="<?php echo THEME_IMG . 'logo-new.png' ?>" alt="" class="w-full mx-auto sm:mx-0"
                 style="max-width: 200px">
         </div>
         <div class="col-span-6 sm:col-span-3 mt-10">
             <nav class="w-full">
                 <ul class="grid gap-2 list-none p-0 font-alt">
-                    <?php foreach(wp_get_menu_array('footer_1')['menus'] as $el) :  ?>
+                    <?php foreach (wp_get_menu_array('footer_1')['menus'] as $el) :  ?>
                     <li class="ml-10 text-lg text-brown">
-                        <a href="<?php echo $el['url']?>"
-                            class="hover:text-dark transition-all font-alt font-semibold text-lg lg:text-2xl">
+                        <a href="<?php echo $el['url'] ?>"
+                            class="hover:text-dark transition-all font-alt font-semibold text-lg lg:text-xl">
                             <?php echo $el['title'] ?>
                         </a>
                     </li>
@@ -21,10 +21,10 @@
         <div class="col-span-6 sm:col-span-3 mt-10">
             <nav class="w-full">
                 <ul class="grid gap-2 list-none p-0 font-alt">
-                    <?php foreach(wp_get_menu_array('footer_2')['menus'] as $el) :  ?>
+                    <?php foreach (wp_get_menu_array('footer_2')['menus'] as $el) :  ?>
                     <li class="ml-10 text-lg text-brown">
-                        <a href="<?php echo $el['url']?>"
-                            class="hover:text-dark transition-all font-alt font-semibold text-lg lg:text-2xl">
+                        <a href="<?php echo $el['url'] ?>"
+                            class="hover:text-dark transition-all font-alt font-semibold text-lg lg:text-xl">
                             <?php echo $el['title'] ?>
                         </a>
                     </li>
@@ -32,7 +32,21 @@
                 </ul>
             </nav>
         </div>
-        <div class="col-span-12 sm:col-span-2 mt-10">
+        <div class="col-span-6 sm:col-span-3 mt-10">
+            <nav class="w-full">
+                <ul class="grid gap-2 list-none p-0 font-alt">
+                    <?php foreach (wp_get_menu_array('footer_3')['menus'] as $el) :  ?>
+                    <li class="ml-10 text-lg text-brown">
+                        <a href="<?php echo $el['url'] ?>"
+                            class="hover:text-dark transition-all font-alt font-semibold text-lg lg:text-xl">
+                            <?php echo $el['title'] ?>
+                        </a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-span-12 sm:col-span-1 mt-10">
             <div class="flex justify-center sm:justify-end">
                 <a href="<?php echo get_field('global_scoial_fb', 'options') ?>"
                     class="raltive w-10 h-10 p-3 bg-brown-light text-white hover:bg-white hover:text-brown-light transition-all rounded-full ml-5 block">
@@ -62,7 +76,7 @@
         </svg>
 
     </div>
-    <?php get_template_part( THEME_CMP, 'mobile-menu' ) ?>
+    <?php get_template_part(THEME_CMP, 'mobile-menu') ?>
     <script type="text/javascript"
         src="<?php echo get_template_directory_uri(); ?>/assets/cookies/divante.cookies.min.js">
     </script>
@@ -79,6 +93,23 @@
     </script>
     <?php wp_footer() ?>
 </footer>
+<script>
+document.addEventListener('wpcf7mailsent', function(event) {
+    window.dataLayer.push({
+        "event": "cf7submission",
+        "formId": event.detail.contactFormId,
+        "response": event.detail.inputs
+    })
+    console.log("--- Mail Sent --");
+});
+</script>
+<?php if (!is_UAE()) : ?>
+<style>
+input.qty {
+    display: none !important;
+}
+</style>
+<?php endif; ?>
 </body>
 
 </html>

@@ -60,7 +60,12 @@
             $ingridients = get_field('cooked_with_cat');
             if (!empty($ingridients)) {
                 foreach ($ingridients as $el) {
-                    if (!in_array($el['product'], $cooked_with)) array_push($cooked_with, $el['product']);
+					
+                    if (!in_array($el['product'], $cooked_with)) {
+						if (!empty($el['product'])) {
+							array_push($cooked_with, $el['product']);
+						}
+					}
                 }
             }
         }

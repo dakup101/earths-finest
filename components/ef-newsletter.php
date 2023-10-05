@@ -10,7 +10,7 @@
             </p>
 
         </div>
-        <div>
+        <div class="text-dark">
             <?php echo do_shortcode(get_field('newsletter_form_shortcode', 'options')) ?>
         </div>
     </div>

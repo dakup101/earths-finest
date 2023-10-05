@@ -80,8 +80,7 @@
     
                     // Text
                     $link_text = sprintf( __( '%d', 'woocommerce' ), WC()->cart->cart_contents_count);
-                    
-                    // Link
+                    if (is_UAE()) :
                     ?>
                     <a href="<?php echo $link_url; ?>" class="relative mr-2">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="w-6 h-6">
@@ -93,7 +92,7 @@
                             <?php echo $link_text ?>
                         </div>
                     </a>
-                    <?php // if (isset($_COOKIE['products_viewed'])) echo ($_COOKIE['products_viewed']); ?>
+					<?php endif; ?>
                 </div>
             </div>
             <?php get_template_part( THEME_CMP, 'megamenu' ) ?>

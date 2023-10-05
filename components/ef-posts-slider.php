@@ -1,9 +1,32 @@
 <?php
-$args = array(
+global $post;
+$post_id = $post->ID;
+$args = array();
+
+if (get_post_type($post) == "post" && !empty(wp_get_post_terms($post_id, "category"))){
+	$post_cats = array();
+	foreach(wp_get_post_terms($post_id, "category") as $term){
+		array_push($post_cats, $term->slug);
+	}
+	$args = array(
+		"post_type" => "post",
+    	"numberposts" => 9,
+    	"orderby" => "rand",
+		"tax_query" => array(
+			"taxonomy" => "category", 
+			"field" => "slug",
+			"terms" => $post_cats
+		)
+	);
+}
+else {
+	$args = array(
     "post_type" => "post",
     "numberposts" => 9,
     "orderby" => "rand",
 );
+}
+
 $recipes = new WP_Query($args);
 ?>
 <div class="ef-recipes-slider overflow-hidden relative px-12 sm:px-16 lg:px-20">

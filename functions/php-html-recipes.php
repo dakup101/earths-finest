@@ -42,7 +42,6 @@ if (!empty($args['tax_query'])) {
 
 if (!empty($products)) {
     $prod_array = explode(",", $products);
-    print_r($prod_array);
     $args['meta_query'] = array(
     );
     foreach ($prod_array as $el) {

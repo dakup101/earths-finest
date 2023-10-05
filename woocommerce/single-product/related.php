@@ -19,9 +19,181 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( $related_products ) : ?>
 
-<div class="ef-cats-slider overflow-hidden relative px-12 sm:px-16 xl:px-20">
+$cookie_count = false;
+$cookie_1 = null;
+$cookie_2 = null;
+$cookie_3 = null;
+$cats_ids_array = array();
+$cookie_saved = explode(", ", $_COOKIE["products_viewed"]);
+switch(count($cookie_saved)){
+    case 1: {
+        $cookie_1 = $cookie_saved[0];
+        $cookie_2 = null;
+        $cookie_3 = null;
+        break;
+    }
+    case 2: {
+        $cookie_1 = $cookie_saved[0];
+        $cookie_2 = $cookie_saved[1];
+        $cookie_3 = null;
+        break;
+    }
+    case 3: {
+        $cookie_1 = $cookie_saved[0];
+        $cookie_2 = $cookie_saved[1];
+        $cookie_3 = $cookie_saved[2];
+        break;
+    }
+    default: {
+        $cookie_1 = null;
+        $cookie_2 = null;
+        $cookie_3 = null;
+        break;
+    }
+}
+
+$args = array(
+	"post_type" => "product", 
+	'posts_per_page' => 8,
+	'orderby'        => 'rand',
+);
+
+$args_1 = array();
+
+$args_2 = array();
+
+$args_3 = array();
+
+
+$product_ids = array();
+
+if ($cookie_1 && !$cookie_2 && !$cookie_3){
+	$args = array(
+		"post_type" => "product", 
+		'posts_per_page' => 6,
+		'orderby'        => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'id',
+				'terms' => $cookie_1,
+				'operator' => "NOT IN",
+			),
+		)
+	);
+
+	$args_1 = array(
+		"post_type" => "product", 
+		'posts_per_page' => 2,
+		'orderby'        => 'rand',
+		'tax_query' => array(
+			'relation' => 'OR',
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'id',
+				'terms' => $cookie_1,
+			),
+		)
+		);
+}
+else if ($cookie_1 && $cookie_2 && !$cookie_3){
+	$args = array(
+		"post_type" => "product", 
+		'posts_per_page' => 4,
+		'orderby'        => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'id',
+				'terms' => array($cookie_1, $cookie_2),
+				'operator' => "NOT IN",
+			),
+		)
+	);
+
+	$args_1 = array(
+		"post_type" => "product", 
+		'posts_per_page' => 2,
+		'orderby'        => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'id',
+				'terms' => $cookie_1,
+			),
+		)
+		);
+
+	$args_2 = array(
+		"post_type" => "product", 
+		'posts_per_page' => 2,
+		'orderby'        => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'id',
+				'terms' => $cookie_2,
+			),
+		)
+		);
+}
+else if ($cookie_1 && $cookie_2 && $cookie_3){
+	$args = array(
+		"post_type" => "product", 
+		'posts_per_page' => 2,
+		'orderby'        => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'id',
+				'terms' => array($cookie_1, $cookie_2, $cookie_3),
+				'operator' => "NOT IN",
+			),
+		)
+	);
+
+	$args_1 = array(
+		"post_type" => "product", 
+		'posts_per_page' => 2,
+		'orderby'        => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'id',
+				'terms' => $cookie_1,
+			),
+		)
+		);
+
+	$args_2 = array(
+		"post_type" => "product", 
+		'posts_per_page' => 2,
+		'orderby'        => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'id',
+				'terms' => $cookie_2,
+			),
+		)
+		);
+
+	$args_2 = array(
+		"post_type" => "product", 
+		'posts_per_page' => 2,
+		'orderby'        => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'id',
+				'terms' => $cookie_3,
+			),
+		)
+		);
+}
+?>
+<div class="ef-products-slider overflow-hidden relative px-14">
     <div class="slide-prev slide-nav text-brown transition-all left-0 h-full bg-white flex items-center">
         <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg"
             class="w-8 sm:w-10 xl:w-14 fill-current drop-shadow-xl rotate-180 opacity-70 hover:opacity-100 cursor-pointer transition-all">
@@ -30,16 +202,58 @@ if ( $related_products ) : ?>
         </svg>
     </div>
     <div class="swiper-wrapper">
+        <!-- START - Recs 1 -->
+        <?php if (!empty($args_1)): ?>
+        <?php $products = new WP_Query($args_1);
+		if ($products->have_posts()): ?>
 
-        <?php foreach($related_products as $related_product) :  ?>
+        <?php while($products->have_posts()): $products->the_post(); ?>
         <ul class="swiper-slide p-2 list-none">
-            <?php
-                $post_object = get_post($related_product->get_id());
-                setup_postdata($GLOBALS['post'] =& $post_object);
-                wc_get_template_part('content', 'product');
-                ?>
+            <?php wc_get_template_part('content', 'product'); ?>
         </ul>
-        <?php endforeach; ?>
+        <?php endwhile; ?>
+
+        <?php wp_reset_postdata(); endif; ?>
+        <?php endif; ?>
+        <!-- END - Recs 1 -->
+        <!-- START - Recs 2 -->
+        <?php if (!empty($args_2)): ?>
+        <?php $products = new WP_Query($args_2);
+		if ($products->have_posts()): ?>
+
+        <?php while($products->have_posts()): $products->the_post(); ?>
+        <ul class="swiper-slide p-2 list-none">
+            <?php wc_get_template_part('content', 'product'); ?>
+        </ul>
+        <?php endwhile; ?>
+
+        <?php wp_reset_postdata(); endif; ?>
+        <?php endif; ?>
+        <!-- END - Recs 2 -->
+        <!-- START - Recs 3 -->
+        <?php if (!empty($args_3)): ?>
+        <?php $products = new WP_Query($args_3);
+		if ($products->have_posts()): ?>
+
+        <?php while($products->have_posts()): $products->the_post(); ?>
+        <ul class="swiper-slide p-2 list-none">
+            <?php wc_get_template_part('content', 'product'); ?>
+        </ul>
+        <?php endwhile; ?>
+
+        <?php wp_reset_postdata(); endif; ?>
+        <?php endif; ?>
+        <!-- END - Recs 3 -->
+        <?php $products = new WP_Query($args);
+		if ($products->have_posts()): ?>
+
+        <?php while($products->have_posts()): $products->the_post(); ?>
+        <ul class="swiper-slide p-2 list-none">
+            <?php wc_get_template_part('content', 'product'); ?>
+        </ul>
+        <?php endwhile; ?>
+
+        <?php wp_reset_postdata(); endif; ?>
 
     </div>
     <div class="slide-next slide-nav text-brown transition-all right-0 h-full bg-white flex items-center">
@@ -51,6 +265,4 @@ if ( $related_products ) : ?>
     </div>
 </div>
 <?php
-endif;
-
 wp_reset_postdata();

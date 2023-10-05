@@ -56,23 +56,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 				)); ?>
                 </div>
             </div>
-            <div class="text-xl font-semibold tracking-widest mb-5">Delivery Method</div>
+            <div class="text-xl font-semibold tracking-widest mb-5">Address Information</div>
             <div class="grid xs:grid-cols-4 gap-3 mb-8">
-                <div class="xs:col-span-4">
-                    <div class="the-delivery">
-                        <?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
-
-                        <?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
-
-                        <?php wc_cart_totals_shipping_html(); ?>
-
-                        <?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
-
-                        <?php endif; ?>
-                    </div>
-                </div>
-
-
                 <div class="xs:col-span-2">
                     <?php woocommerce_form_field( 'billing_country', array( 'type' => 'country' ) ); ?>
                 </div>
@@ -101,6 +86,26 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 				)); ?>
                 </div>
                 <?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
+            </div>
+
+            <div class="text-xl font-semibold tracking-widest mb-5">Delivery Method</div>
+            <div class="grid xs:grid-cols-4 gap-3 mb-8">
+                <div class="xs:col-span-4">
+                    <div class="the-delivery">
+                        <?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+
+                        <?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+
+                        <?php wc_cart_totals_shipping_html(); ?>
+
+                        <?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+
+                        <?php endif; ?>
+                    </div>
+					<div class="the-delivery-time">
+						<?php echo get_field("cart_delivery_info", "options") ?>
+					</div>
+                </div>
             </div>
 
             <div class="text-xl font-semibold tracking-widest mb-5">Payment Method</div>
